@@ -6,8 +6,8 @@
 #define NOMEARQAUX "auxiliar.txt"
 
 // retorna 2 quano o livro ja esta alugado 
-// retorna 1 quando o livro é cadastrado com sucesso
-// retorna 0 quando livro ja existe na base
+// retorna 1 quando o livro é removido com sucesso
+// retorna 0 quando livro nao foi removido da base
 int removeLivro(char *nomeArq, int idRemover)
 {
     // buscar livro para saber se ja existe
@@ -24,7 +24,7 @@ int removeLivro(char *nomeArq, int idRemover)
         // ler todo o arquivo se n for a linha a ser deletada, escreve
         // se for a linha a ser deletada não
         if(alugado == 1){
-            
+
             //retorna 2 se o livro estiver alugado
             return 2;
         }
