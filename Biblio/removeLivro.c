@@ -5,6 +5,7 @@
 #define TAMEDI 15
 #define NOMEARQAUX "auxiliar.txt"
 
+// retorna 2 quano o livro ja esta alugado 
 // retorna 1 quando o livro é cadastrado com sucesso
 // retorna 0 quando livro ja existe na base
 int removeLivro(char *nomeArq, int idRemover)
@@ -22,6 +23,11 @@ int removeLivro(char *nomeArq, int idRemover)
     {
         // ler todo o arquivo se n for a linha a ser deletada, escreve
         // se for a linha a ser deletada não
+        if(alugado == 1){
+            
+            //retorna 2 se o livro estiver alugado
+            return 2;
+        }
         if (idArq != idRemover)
         {
             // escreve no auxiliar
@@ -57,6 +63,6 @@ int removeLivro(char *nomeArq, int idRemover)
         }
     }
     fclose(arq);
-    
+
     return 1;
 }
