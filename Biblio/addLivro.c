@@ -15,7 +15,7 @@ int addLivro(char *nomeArq, int id, char *nomeLivro, char *editora, int matr)
     int idArq;
     while (!feof(arq))
     {
-        if (fscanf(arq, "%[^,]", idArq) != 1)
+        if (fscanf(arq, "%d", &idArq) != 1)
             break;
         if (idArq == id)
         {
