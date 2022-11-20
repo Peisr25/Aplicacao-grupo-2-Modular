@@ -14,11 +14,13 @@ int removeLivro(char *nomeArq, int idRemover)
     FILE *arq;
     FILE *arqAux;
     arq = openFile(nomeArq, "r");
-    arqAux = openFile(NOMEARQAUX, "a");
+    arqAux = openFile(NOMEARQAUX, "w");
     char nomeLivro[TAMLIV], editora[TAMEDI];
-    int idArq,alugado, matr;
-    while (fscanf(arq, "%d , %[^,] , %[^,] , %d , %d", &idArq, nomeLivro, editora, &alugado, &matr) != EOF)
+    int idArq,alugado, matr, ret;
+    while (!feof(arq))
     {
+        ret = fscanf(arq, "%d , %[^,] , %[^,] , %d , %d", &idArq, nomeLivro, editora, &alugado, &matr);
+        if (ret == -1) break;        
         // ler todo o arquivo se n for a linha a ser deletada, escreve
         // se for a linha a ser deletada não
         if(alugado == 1){
@@ -42,7 +44,8 @@ int removeLivro(char *nomeArq, int idRemover)
     while (!feof(arqAux))
     {
         //le do arquivo auxiliar e escreve no principal
-        fscanf(arqAux, "%d , %[^,] , %[^,] , %d , %d", &idArq, nomeLivro, editora, &alugado, &matr);
+        ret = fscanf(arqAux, "%d , %[^,] , %[^,] , %d , %d", &idArq, nomeLivro, editora, &alugado, &matr);
+        if (ret == -1) break;
         fprintf(arq,"%d, %s, %s, %d, %d", idArq, nomeLivro, editora, alugado, matr);
     }
 
