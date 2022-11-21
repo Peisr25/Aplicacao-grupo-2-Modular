@@ -28,7 +28,7 @@ int main(void)
     // pergunto a matricula e senha dentro da funcao
     // pego de volta para usar aqui
     strcpy(matr, fazLogin(tipo_usuario, &check));
-    printf("Matr : %s", matr);
+    printf("Matr : %s\n", matr);
     // login bem sucedido
     // chama menu sau com tipo de usuario
     // tudo vai ser feito dentro do modulo menusau
