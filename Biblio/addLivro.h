@@ -1,1 +1,1 @@
-int addLivro(char *nomeArq, int id, char *nomeLivro, char *editora, int matr);
+int addLivro(char *nomeArq, int id, char *nomeLivro, char *editora);

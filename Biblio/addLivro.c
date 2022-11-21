@@ -12,15 +12,16 @@ int addLivro(char *nomeArq, int id, char *nomeLivro, char *editora)
     int comp = 0;
     FILE *arq;
     arq = openFile(nomeArq, "r");
-    int idArq;
+    char nomeLivroTemp[TAMLIV], editoraTemp[TAMEDI];
+    int idArq,ret,alugadoTemp, matrTemp;
     while (!feof(arq))
     {
-        if (fscanf(arq, "%d", &idArq) != 1)
+        ret = fscanf(arq, "%d , %[^,] , %[^,] , %d , %d", &idArq, nomeLivroTemp, editoraTemp, &alugadoTemp, &matrTemp);
+        if (ret == -1)
             break;
         if (idArq == id)
         {
             // retorna 0 se livro existe na base
-            comp = 1;
             return 0;
         }
         
@@ -30,8 +31,9 @@ int addLivro(char *nomeArq, int id, char *nomeLivro, char *editora)
     {
         //cadastra um novo livro
         int alugado = 0;
+        int matr;
         arq = openFile(nomeArq, "a");
-        fprintf(arq, "%d, %s, %s, %d, %d", id, nomeLivro, editora, alugado);
+        fprintf(arq, "%d, %s, %s, %d, %d", id, nomeLivro, editora, alugado,matr);
         fclose(arq);
     }
     return 1;
