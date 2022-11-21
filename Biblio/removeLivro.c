@@ -23,15 +23,16 @@ int removeLivro(char *nomeArq, int idRemover)
         if (ret == -1) break;        
         // ler todo o arquivo se n for a linha a ser deletada, escreve
         // se for a linha a ser deletada não
-        if(alugado == 1){
-
-            //retorna 2 se o livro estiver alugado
-            return 2;
-        }
-        if (idArq != idRemover)
-        {
+        if (idArq != idRemover){
             // escreve no auxiliar
-            fprintf(arqAux, "%d, %s, %s, %d, %d", idArq, nomeLivro, editora, alugado, matr);
+            fprintf(arqAux, "%d, %s, %s, %d, %d\n", idArq, nomeLivro, editora, alugado, matr);
+        }
+
+        else if (idArq == idRemover) {
+            if (alugado == 1) {
+                //retorna 2 se o livro estiver alugado
+                return 2;
+            }
         }
 
     }
@@ -46,7 +47,7 @@ int removeLivro(char *nomeArq, int idRemover)
         //le do arquivo auxiliar e escreve no principal
         ret = fscanf(arqAux, "%d , %[^,] , %[^,] , %d , %d", &idArq, nomeLivro, editora, &alugado, &matr);
         if (ret == -1) break;
-        fprintf(arq,"%d, %s, %s, %d, %d", idArq, nomeLivro, editora, alugado, matr);
+        fprintf(arq,"%d, %s, %s, %d, %d\n", idArq, nomeLivro, editora, alugado, matr);
     }
 
     fclose(arq);
