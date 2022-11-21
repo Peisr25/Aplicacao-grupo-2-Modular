@@ -6,7 +6,7 @@
 
 //retorna 1 quando o livro é cadastrado com sucesso
 //retorna 0 quando livro ja existe na base
-int addLivro(char *nomeArq, int id, char *nomeLivro, char *editora, int matr)
+int addLivro(char *nomeArq, int id, char *nomeLivro, char *editora)
 {
     // buscar livro para saber se ja existe
     int comp = 0;
@@ -31,7 +31,7 @@ int addLivro(char *nomeArq, int id, char *nomeLivro, char *editora, int matr)
         //cadastra um novo livro
         int alugado = 0;
         arq = openFile(nomeArq, "a");
-        fprintf(arq, "%d, %s, %s, %d, %d", id, nomeLivro, editora, alugado, matr);
+        fprintf(arq, "%d, %s, %s, %d, %d", id, nomeLivro, editora, alugado);
         fclose(arq);
     }
     return 1;
