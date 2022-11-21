@@ -1,0 +1,1 @@
+int alugaLivro(char* nomeArq, int idLivro,int matr);
