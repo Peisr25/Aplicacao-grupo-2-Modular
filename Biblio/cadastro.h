@@ -1,2 +1,1 @@
-int buscaArq(FILE *arq, char *usuario, char *senha);
-int cadastrar(FILE *arq, char *usuario, char *senha);
+int cadastrar(char *nomeArq, char *usuario, char *senha);
