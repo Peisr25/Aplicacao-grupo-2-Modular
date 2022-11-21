@@ -8,7 +8,7 @@
 #define TAMEDI 15
 
 
-void menuBibilio(int tipo_usuario, char* matr)
+void menuBiblio(int tipo_usuario, char* matr)
 {
     int opcao;
     int id,ret;
@@ -64,8 +64,8 @@ void menuBibilio(int tipo_usuario, char* matr)
             puts("Voce nao tem permissao para essa ação");
             break;
         case 3: // Alugar livro
-            if(tipo_usuario == 1){
-                puts("Entre com o id a ser alugado e a matricula do aluno:");
+            if(tipo_usuario == 0){
+                puts("Entre com o id a ser alugado e a matricula:");
                 scanf("%d %d",&id, &matr);
 
                 ret = alugaLivro(NOMEARQLIVROS,id,matr);

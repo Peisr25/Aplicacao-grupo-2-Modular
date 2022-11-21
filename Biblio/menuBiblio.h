@@ -1,0 +1,1 @@
+void menuBiblio(int tipo_usuario, char* matr);
