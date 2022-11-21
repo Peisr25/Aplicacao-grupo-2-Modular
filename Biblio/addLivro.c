@@ -23,6 +23,7 @@ int addLivro(char *nomeArq, int id, char *nomeLivro, char *editora, int matr)
             comp = 1;
             return 0;
         }
+        
     }
     fclose(arq);
     if (comp == 0)

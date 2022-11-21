@@ -7,7 +7,7 @@
 
 #define NOMEARQ "BaseLivros.txt"
 
-int tests_run = 0;
+int tests_run = 1;
 
 static char *testesValidos(void){
     puts("Iniciando Testes Validos!!\n");
@@ -18,26 +18,18 @@ static char *testesValidos(void){
     mu_assert("Teste removendo o livro de código 121 \n", 1==removeLivro(NOMEARQ, 121));
     mu_assert("Teste removendo o livro de código 122 \n", 1==removeLivro(NOMEARQ, 122));
 
+    return 0;
 }
 
-static char * testesInvalidos(void){
-    puts("Iniciando testes Invalidos!!\n");
-
-    mu_assert("Teste removendo livro que está alugado", 2==removeLivro(NOMEARQ,121));
-    mu_assert("Teste adicionando livro que ja existe", 0==addLivro(NOMEARQ, 122,"Diário de Um Banana", "VR Editora",23232231));
-}
 
 static char *testes(void) {
     mu_run_test(testesValidos);
-    //mu_run_test(testesInvalidos);
 
     return 0;
 
 }
 
 int main(void){
-
-    //FILE* arq = openFile(NOMEARQ, "w");
 
     char *saida;
 
