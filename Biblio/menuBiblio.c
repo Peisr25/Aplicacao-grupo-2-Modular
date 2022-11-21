@@ -30,7 +30,7 @@ void menuBiblio(int tipo_usuario, char* matr)
             if(tipo_usuario == 1){
 
                 puts("Entre com o Id, Nome do livro, Editora:");
-                scanf("%d,%[^\n],%[^\n],%d",&id,nomeLivro,editora);
+                scanf("%d,%[^\n],%[^\n]",&id,nomeLivro,editora);
 
                 ret = addLivro(NOMEARQLIVROS,id,nomeLivro,editora);
 
@@ -65,8 +65,8 @@ void menuBiblio(int tipo_usuario, char* matr)
             break;
         case 3: // Alugar livro
             if(tipo_usuario == 0){
-                puts("Entre com o id a ser alugado e a matricula:");
-                scanf("%d %d",&id, &matr);
+                puts("Entre com o id a ser alugado");
+                scanf("%d %d",&id);
 
                 ret = alugaLivro(NOMEARQLIVROS,id,matr);
 
