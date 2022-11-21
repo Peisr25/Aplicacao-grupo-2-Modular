@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "menuSau.h"
 #include "addLivro.h"
 #include "removeLivro.h"
 #include "alugaLivro.h"
@@ -12,7 +11,7 @@
 void menuBibilio(int tipo_usuario, char* matr)
 {
     int opcao;
-    int id, matr,ret;
+    int id,ret;
     char nomeLivro[TAMLIV], editora[TAMEDI];
     while(opcao != -1)
     {
