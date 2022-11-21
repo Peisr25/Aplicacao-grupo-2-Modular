@@ -28,10 +28,11 @@ int alugaLivro(char* nomeArq, int idLivro,int matr){
             }
             alugadoTemp = 1;
             comp = 1; // variavel utilizada para verificar se o livro a ser alugado foi encontrado 
-            fprintf(arqAux, "%d, %s, %s, %d, %d", idArq, nomeLivroTemp, editoraTemp, alugadoTemp, matr);
+            fprintf(arqAux, "%d, %s, %s, %d, %d\n", idArq, nomeLivroTemp, editoraTemp, alugadoTemp, matr);
         }
         //não achou o livro a ser alugado
-        fprintf(arqAux, "%d, %s, %s, %d, %d", idArq, nomeLivroTemp, editoraTemp, alugadoTemp, matrTemp);
+        
+        else fprintf(arqAux, "%d, %s, %s, %d, %d\n", idArq, nomeLivroTemp, editoraTemp, alugadoTemp, matrTemp);
     }
     fclose(arq);
     fclose(arqAux);
@@ -49,7 +50,7 @@ int alugaLivro(char* nomeArq, int idLivro,int matr){
         //le do arquivo auxiliar e escreve no principal
         ret = fscanf(arqAux, "%d , %[^,] , %[^,] , %d , %d", &idArq, nomeLivroTemp, editoraTemp, &alugadoTemp, &matr);
         if (ret == -1) break;
-        fprintf(arq,"%d, %s, %s, %d, %d", idArq, nomeLivroTemp, editoraTemp, alugadoTemp, matr);
+        fprintf(arq,"%d, %s, %s, %d, %d\n", idArq, nomeLivroTemp, editoraTemp, alugadoTemp, matr);
     }
 
     fclose(arq);
